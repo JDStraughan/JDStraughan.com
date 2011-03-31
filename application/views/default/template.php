@@ -18,7 +18,7 @@
 		echo HTML::script(url::base() . $script) . "\n";
 	}
 ?>
-<title><?= $site_name; ?> - <?= $tag_line; ?></title> 
+<title><?= $title; ?> | <?= $site_name; ?></title> 
 </head> 
 <body>
 	<div id="wrapper">
@@ -29,15 +29,6 @@
 			<div id="messages">
 				<img src="<?= url::base() . 'media/images/info.png'; ?>" /> 
 				<span class="message"><?= $messages; ?></span>
-			</div>
-			<?php endif; ?>
-			
-			<?php if ($form_error) : ?>
-			<div id="form_error">
-				<img src="<?= url::base() . 'media/images/alert.png'; ?>" /> 
-				<?php foreach ($form_error as $message) : ?>
-					<span class="message"><?= $message; ?></span>
-				<?php endforeach; ?>
 			</div>
 			<?php endif; ?>
 			

@@ -39,9 +39,8 @@
 	<p>Your email is required but will not be published or distributed in any way.</p>
 	<?php if ($form_error): ?>
 		<?php foreach ($form_error as $error): ?>
-			<div class="message ui-corner-all ui-state-error" style="clear: both;">
-				<span class="ui-icon ui-icon-alert"></span><strong><?= $error; ?></strong>
-				<br />
+			<div id="comment_error" class="message ui-corner-all ui-state-error" style="clear: both;">
+				<div class="alert"><span class="alert_icon"></span><?= $error; ?></div>
 				<?= HTML::errors($errors); ?>	
 			</div>
 		<?php endforeach; ?>

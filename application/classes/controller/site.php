@@ -73,6 +73,8 @@ abstract class Controller_Site extends Controller_Template {
 		
 		$this->template->header = View::factory('default/assets/header');
 		
+		$this->template->title = 'San Antonio Web Developer and Consultant';
+		
 		$this->template->header->page_nav = View::factory('default/assets/page_nav')
 			->bind('pages', $pages);
 			

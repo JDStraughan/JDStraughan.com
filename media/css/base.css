@@ -60,6 +60,21 @@ h1, h2 {
 	display: none;
 }
 
+div.alert {
+	padding-left: 24px;
+	color: red;
+}
+
+div.alert .alert_icon {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin-bottom: -1px;
+	margin-right: 5px;
+	background-image: url('../images/error.png');
+	background-repeat:no-repeat;
+}
+
 .clearfix:after {
 	content: ".";
 	display: block;

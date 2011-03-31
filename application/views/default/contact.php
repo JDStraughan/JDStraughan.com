@@ -5,9 +5,8 @@
 <? endif; ?>
 <?php if ($form_error): ?>
 	<?php foreach ($form_error as $error): ?>
-		<div class="message ui-corner-all ui-state-error" style="clear: both;">
-			<span class="ui-icon ui-icon-alert"></span><strong><?= $error; ?></strong>
-			<br />
+		<div class="message" style="clear: both;">
+			<div class="alert"><span class="alert_icon"></span><?= $error; ?></div>
 			<?= HTML::errors($errors); ?>	
 		</div>
 	<?php endforeach; ?>

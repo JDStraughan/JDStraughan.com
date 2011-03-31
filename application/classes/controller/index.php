@@ -28,6 +28,8 @@ class Controller_Index extends Controller_Site {
 		
 		$this->template->content = View::factory('default/page')
 				->set('page', $page);
+		
+		$this->template->title = $page->title;
 	}
 	
 	public function action_newpost() 
@@ -50,6 +52,8 @@ class Controller_Index extends Controller_Site {
 		{
 			Request::instance()->redirect('not-found');
 		}
+		
+		$this->template->title = $post->title;
 		
 		$comment_form = new Model_Comment();
 		
@@ -79,6 +83,7 @@ class Controller_Index extends Controller_Site {
 	}
 	
 	public function action_not_found() {
+		$this->template->title = '404';
 		$this->request->status = 404; 
 		$this->template->content = View::factory('default/not-found');
 	}
@@ -132,17 +137,15 @@ class Controller_Index extends Controller_Site {
 				if ($comment->save()) 
 				{
 					
-					Mailer::factory('comment')->send_form(array(
-						'data' => array(
-							'form' => array(
-								'name' => $comment->name,
-								'email'	=> $comment->email,
-								'post'	=> $comment->post->title,
-								'comment' => $comment->text,
-								'approve' => url::site("comment/approve/{$comment->id}")
-							)
+					Email::factory('New Comment Approval Request from JDStraughan.com',
+							View::factory('email/comment')
+								->set('comment', $comment), 
+							'text/html'
 						)
-					));
+					    ->to('jdstraughan@gmail.com')
+					    ->from('jdstraughan@gmail.com', 'JDStraughan.com')
+					    ->send();
+					    
 					$this->session->set('messages', 'Your comment has been added (pending approval)');
 					$this->session->set('post', array());
 					Request::instance()->redirect(url::site('post/' . $article->slug));
@@ -153,7 +156,7 @@ class Controller_Index extends Controller_Site {
 				$this->session->set('form_error', array('Submission Failed.  Please see error messages below.'));
 				$this->session->set('errors', $post->errors('contact'));
 				$this->session->set('post', $_POST);
-				Request::instance()->redirect(url::site('post/' . $article->slug));
+				Request::instance()->redirect(url::site("post/{$article->slug}#comment_error"));
 			}
 	}
 	
@@ -161,6 +164,8 @@ class Controller_Index extends Controller_Site {
 	{
 		$this->template->content = View::factory('default/faqs')
 			->bind('faqs', $faqs);
+			
+		$this->template->title = 'FAQs';
 			
 		$faqs = ORM::factory('faq')->order_by('sort_order', 'ASC');
 	}
@@ -170,6 +175,8 @@ class Controller_Index extends Controller_Site {
 		$contact = new Model_Contact();
 		
 		$meta = $contact->get_meta_data();
+		
+		$this->template->title = 'Contact';
 		
 		$this->template->content = View::factory('default/contact')
 			->bind('form_error', $this->form_error)
@@ -193,16 +200,15 @@ class Controller_Index extends Controller_Site {
 				if ($contact->save()) 
 				{
 
-					Mailer::factory('contact')->send_form(array(
-						'data' => array(
-							'form' => array(
-								'name' => $contact->name,
-								'email'	=> $contact->email,
-								'phone'	=> $contact->phone,
-								'content' => $contact->content
-							)
+					Email::factory('New Contact from JDStraughan.com',
+							View::factory('email/contact')
+								->set('contact', $contact), 
+							'text/html'
 						)
-					));
+					    ->to('jdstraughan@gmail.com')
+					    ->from('jdstraughan@gmail.com', 'JDStraughan.com')
+					    ->send();
+										    
 					$this->session->set('messages', 'Contact Sent!');
 					Request::instance()->redirect(url::site('contact_success'));
 				}			
@@ -224,6 +230,7 @@ class Controller_Index extends Controller_Site {
 	
 	public function action_contact_success() 
 	{
+		$this->template->title = 'Contact';
 		$this->template->content = View::factory('default/contact_success');
 	}
 	

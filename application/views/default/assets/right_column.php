@@ -15,6 +15,6 @@
 	</ul>
 </div>
 <div id="archive-posts">
-	<h2>Archived Posts</h2>
+	<h2>Post Archives</h2>
 	<? echo $posts->get_archive_html(100); ?>
 </div>
