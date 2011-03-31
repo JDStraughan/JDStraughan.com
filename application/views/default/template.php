@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
-<meta name="description" content="A simple CMS for Kohana 3" /> 
+<meta name="description" content="JDStraughan is a web developer and consultant specializing in PHP living in San Antonio, Texas." /> 
 <meta name="author" content="JDStraughan" /> 
 <meta name="copyright" content="Copyright 2010. JDStraughan.com" />
 <meta name="language" content="en-us" />
