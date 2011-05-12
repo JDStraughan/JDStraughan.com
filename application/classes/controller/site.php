@@ -43,6 +43,7 @@ abstract class Controller_Site extends Controller_Template {
 		{
 			// Initialize empty values
 			$this->template->title   = '';
+			$this->template->description = 'JDStraughan is a web developer and consultant specializing in PHP living in San Antonio, Texas.';
 			$this->template->content = '';
 			$this->template->right_column = '';
 			$this->template->styles = array(

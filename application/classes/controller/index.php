@@ -55,6 +55,8 @@ class Controller_Index extends Controller_Site {
 		
 		$this->template->title = $post->title;
 		
+		$this->template->description = $post->description;
+		
 		$comment_form = new Model_Comment();
 		
 		if (array_key_exists('scheck', $_POST)) {

@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
 	});
 	$('.post-archive ul span.month-click').bind('click', function() {
 		$(this).parent().find('li').toggle();
+		$(this).parent().find('ul').toggle();
 	});
 	
 	// Syntax highlighting
