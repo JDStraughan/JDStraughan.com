@@ -286,7 +286,7 @@ html[xmlns] .clearfix {
 	
 	#wrapper #content-wrapper #content .project-details img {
 		float: left;
-		margin: 15px 20px;
+		margin: 15px 25px;
 	}
 	
 	#wrapper #content-wrapper #content .project-details .info {
@@ -295,7 +295,12 @@ html[xmlns] .clearfix {
 	
 	#wrapper #content-wrapper #content #comments .comment {
 		border-bottom: dotted thin #E0E0E0;
+		padding: 10px 0;
 	}
+	
+			#wrapper #content-wrapper #content #comments .author-comment {
+				background-color: #F0F0F0;
+			}
 	
 		#wrapper #content-wrapper #content #comments h3 {
 			padding: 10px;
@@ -311,6 +316,7 @@ html[xmlns] .clearfix {
 		#wrapper #content-wrapper #content #comments .comment .text {
 			width: 400px;
 			float: right;
+			padding-right: 12px;
 		}
 	
 	#wrapper #content-wrapper #right-column {

@@ -9,7 +9,7 @@
 		<h3>Comments (<?= count($comments); ?>)</h3>
 		
 		<? foreach ($comments as $comment) : ?>
-		<div class="comment clearfix">
+		<div class="comment clearfix <?= $comment->email == 'jdstraughan@gmail.com' ? 'author-comment' : ''; ?>">
 			<p class="author">
 				<?php $gravatar = md5(trim(strtolower($comment->email))); ?>
 				<img src="http://www.gravatar.com/avatar/<?= $gravatar ?>" alt="gravatar" />
@@ -48,7 +48,7 @@
 	<div id="comment_form">
 		<?= Form::open(); ?>
 		<?= Form::generate($comment_form, $fields); ?>
-		<input type="text" name="scheck" id="scheck" class="sckeck" value="" autocomplete="off" />
+		<input type="text" name="scheck" id="scheck" class="scheck" value="" autocomplete="off" />
 		<?= Form::submit('comment', 'Add Comment'); ?>
 		<?= Form::close(); ?>
 	</div>
