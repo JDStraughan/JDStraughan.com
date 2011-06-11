@@ -81,7 +81,7 @@ class Model_Comment extends Model_Takara {
 	);
 	
 	/**
-	 * Retreives the newest record based on date published
+	 * Retrieves the newest record based on date published
 	 * 
 	 * @return 	Result
 	 */

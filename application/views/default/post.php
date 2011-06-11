@@ -6,7 +6,12 @@
 <div id="comments" class="clearfix">
 	<? if (isset($comments)) : ?>
 	
-		<h3>Comments (<?= count($comments); ?>)</h3>
+		<div id="comment_header">
+			<h3>Comments (<?= count($comments); ?>)</h3>
+			<a href="<?= URL::site("feed/comments/{$post->slug}") ?>">
+				<img src="<?= URL::site('media/images/rss.png') ?>" alt="Comment RSS" />
+			</a>
+		</div>
 		
 		<? foreach ($comments as $comment) : ?>
 		<div class="comment clearfix <?= $comment->email == 'jdstraughan@gmail.com' ? 'author-comment' : ''; ?>">

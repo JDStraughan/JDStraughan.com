@@ -108,6 +108,12 @@ Route::set('rss', 'rss.xml')
 		'action'     => 'rss',
 ));
 
+Route::set('feed', 'feed(/<action>(/<slug>))', array('slug' => '.*'))
+	->defaults(array(
+		'controller' => 'feed',
+		'action' 	=> 'comments'
+));
+
 Route::set('approve', 'comment/approve/<id>', array('id' => '[0-9]+'))
 	->defaults(array(
 		'controller' => 'index',

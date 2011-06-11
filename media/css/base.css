@@ -302,10 +302,25 @@ html[xmlns] .clearfix {
 				background-color: #F0F0F0;
 			}
 	
-		#wrapper #content-wrapper #content #comments h3 {
-			padding: 10px;
+		#wrapper #content-wrapper #content #comments #comment_header {
 			background-color: #F0F0F0;
+			width: 100%;
+			height: 25px;
+			padding: 10px;
 		}
+	
+			#wrapper #content-wrapper #content #comments #comment_header h3 {
+				float: left;
+			}
+			
+			#wrapper #content-wrapper #content #comments #comment_header a {
+				float: right;
+			}
+			
+			#wrapper #content-wrapper #content #comments #comment_header img {
+				height: 24px;
+				width: 24px;
+			}
 	
 		#wrapper #content-wrapper #content #comments .comment .author {
 			width: 175px;
