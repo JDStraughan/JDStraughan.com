@@ -90,36 +90,6 @@ class Controller_Index extends Controller_Site {
 		$this->template->content = View::factory('default/not-found');
 	}
 	
-	public function action_rss() {
-		
-		$this->auto_render = FALSE;
-		
-		$info = array(
-			'title' => 'JDStraughan.com Recent Posts',
-			'pubDate' => date("D, d M Y H:i:s T"),
-			'description' => 'My recent blog posts',
-			'link' => url::site()); 
-		
-		$items = array();
-		
-		$post = new Model_Post();
-		$posts = $post->get_summaries(15);
-
-		foreach ($posts as $post)
-		{
-			$items[] = array(
-				'title' => $post->title,
-				'link' => url::site("post/{$post->slug}"),
-				'description' => nl2br($post->summary),
-				'pubDate' => date("D, d M Y H:i:s T", $post->date_published)
-			);
-		} 
-		  
-		$xml = Feed::create($info, $items, 'rss2');
-		$this->request->response = $xml;
-		
-	}
-	
 	protected function _process_comment(Model_Comment $comment, Model_Post $article) {
 		if (isset($_POST['scheck']) && $_POST['scheck'] != null) {
 			die('nospam');

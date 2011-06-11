@@ -102,10 +102,10 @@ Route::set('not-found', 'not-found')
 		'action'     => 'not_found',
 ));
 
-Route::set('rss', 'rss.xml')
+Route::set('main-rss', 'rss.xml')
 	->defaults(array(
-		'controller' => 'index',
-		'action'     => 'rss',
+		'controller' => 'feed',
+		'action'     => 'main',
 ));
 
 Route::set('feed', 'feed(/<action>(/<slug>))', array('slug' => '.*'))
