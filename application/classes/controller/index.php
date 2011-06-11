@@ -193,7 +193,7 @@ class Controller_Index extends Controller_Site {
 				Request::instance()->redirect(url::site('contact'));
 			}		
 		}
-	elseif ($this->session->get('post')) 
+		elseif ($this->session->get('post')) 
 		{
 			$_POST = $this->session->get('post');
 			$this->session->delete('post');
