@@ -110,7 +110,7 @@ class Controller_Index extends Controller_Site {
 			$items[] = array(
 				'title' => $post->title,
 				'link' => url::site("post/{$post->slug}"),
-				'description' => $post->summary,
+				'description' => nl2br($post->summary),
 				'pubDate' => date("D, d M Y H:i:s T", $post->date_published)
 			);
 		} 

@@ -14,6 +14,15 @@
 	<? endforeach; ?>
 	</ul>
 </div>
+
+<div id="subscribe">
+	<h2>Subscribe</h2>
+	<ul>
+		<li><?= HTML::anchor(URL::site("rss.xml"), 'Posts Feed');?></li>
+		<li><?= HTML::anchor(URL::site("feed/comments/"), 'Comments Feed');?></li>
+	</ul>
+</div>
+
 <div id="archive-posts">
 	<h2>Post Archives</h2>
 	<? echo $posts->get_archive_html(100); ?>
