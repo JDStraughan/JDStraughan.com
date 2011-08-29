@@ -28,7 +28,7 @@ class Model_Post extends Model_Takara {
 	 */
 	protected $_meta_data = array(
 		'display_type' => 'table',
-		'fields' => array('status', 'date_published', 'category_id', 'title', 'link_title', 'content', 'summary'),
+		'fields' => array('status', 'date_published', 'category_id', 'title', 'link_title', 'content', 'summary', 'description'),
 		'list_columns' => array(
 			'title' => 'title',
 			'status' => 'status',
