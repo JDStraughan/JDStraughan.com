@@ -28,7 +28,7 @@ class Model_Post extends Model_Takara {
 	 */
 	protected $_meta_data = array(
 		'display_type' => 'table',
-		'fields' => array('status', 'date_published', 'category_id', 'title', 'link_title', 'content', 'summary', 'description'),
+		'fields' => array('status', 'date_published', 'category_id', 'title', 'link_title', 'content', 'summary'),
 		'list_columns' => array(
 			'title' => 'title',
 			'status' => 'status',
@@ -115,7 +115,8 @@ class Model_Post extends Model_Takara {
 	        'form_element' => array(
 				'type' => 'textarea',
 				'attributes' => array(
-					'class' => 'wysiwyg',
+					'id' => 'wysiwyg',
+					'name' => 'wysiwyg',
 				),
 			)
 		),
