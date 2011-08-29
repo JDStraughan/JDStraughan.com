@@ -36,7 +36,7 @@ class Model_Post extends Model_Takara {
 		),
 		'sort_columns' => array('title', 'status', 'date_published'),
 		'items_per_page' => 10,
-		'sortable' => FALSE,
+		'draggable' => FALSE,
 	);
 	
 	/**

@@ -1,9 +1,9 @@
 <div id="author-profile">
 	<div class="photo">
-		<img width="180" src="<?= url::site('media/images/jason2.jpg'); ?>" alt="JDStraughan" />	
-		<h3>Jason D. Straughan</h3>
+		<img width="180" src="<?= url::site('media/images/users/' . $blog_user->image ); ?>" alt="JDStraughan" />	
+		<h3><?= $blog_user->full_name(); ?></h3>
 	</div>
-	<p class="bio">I live in the beautiful Texas hill country where I concentrate on building great web applications, writing, and enjoying time with my family. Recently I completed the first book on Kohana, <a href="http://www.packtpub.com/kohana-3-0-for-professional-web-applications-beginners-guide/book">"The Kohana 3.0 for Professional Applications Beginner’s Guide"</a> for Packt Publishing, scheduled for release in August.</p>
+	<p class="bio"><?= $blog_user->summary; ?></p>
 </div>
 
 <div id="recent-posts">

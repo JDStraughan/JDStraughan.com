@@ -68,6 +68,10 @@ abstract class Controller_Site extends Controller_Template {
 		
 		$tag_line = $settings->tag_line;
 		
+		$blog_user = ORM::factory('user')->where('id', '=', 1)->find(1);
+		
+		View::bind_global('blog_user', $blog_user);
+		
 		View::bind_global('site_name', $site_name);
 		
 		View::bind_global('tag_line', $tag_line);
