@@ -7,5 +7,3 @@ paginate: 10 //the number of posts per page
 
 tag_page_layout: tag_page
 tag_page_dir: tag
-source: ./_source
-plugins: ./_source/_plugins
