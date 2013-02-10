@@ -14,13 +14,15 @@ This was my first attempt at creating a browser plugin, and I relied heavily on 
 
 The biggest challenge I faced was understanding the difference between [manifest versions 1 and 2](http://developer.chrome.com/extensions/manifestVersion.html).  More importantly, I would find example code written for manifest v1, and attempt to make it work in v2.  This was the source of much frustration.  NoNews is written using manifest v2, so hopefully you don't have the same issues I did.
 
+Note: if there are future updates and you need to match source code, this walkthrough is using [tagged version 0.5 of NoNews](https://github.com/JDStraughan/nonews/tags).
+
 Speaking of manifest files, lets take a look at <code>manifest.json</code>:
 
 {% highlight javascript %}
 {
   "name": "No News (is Good News!)",
   "manifest_version": 2,
-  "version": "0.4",
+  "version": "0.5",
   "homepage_url" : "http://www.nonews.info",
   "description": "Warns you of news pages that may ruin your day ;)",
   "icons": { "16": "img/icon16.png",
@@ -328,7 +330,7 @@ This is a pretty straightforward HTML file, with the only notable areas being th
 {% highlight javascript %}
 var now = new Date().getTime();
 var snooze_end = localStorage.nonews_snooze_end;
-setSnoozedClass(now, snooze_end);
+setSnoozeContents(now, snooze_end);
 var el = document.getElementById("nonews_snooze"); 
 
 if (el) {
@@ -348,7 +350,7 @@ function snooze(now, snooze_end) {
   localStorage.nonews_snooze_end = now + 900000;
 
   // Update the class to reflect snooziness
-  setSnoozedClass(now, localStorage.nonews_snooze_end);
+  setSnoozeContents(now, localStorage.nonews_snooze_end);
 
 }
 
@@ -365,7 +367,7 @@ function snoozeTimeRemaining(now, snooze_end) {
 }
 
 // Updates the snooze container with proper html to operate snooze bar
-function setSnoozedClass(now, snooze_end) {
+function setSnoozeContents(now, snooze_end) {
   if (snooze_end > now) {
     contents = '<span class="snoozing">NoNews is snoozing for  the next ' + snoozeTimeRemaining(now, snooze_end) + '.</span>';
   } else {
