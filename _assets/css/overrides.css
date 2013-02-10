@@ -8,3 +8,8 @@ h2.about {
   color: #999;
   font-size: 26px;
 }
+.lineno {
+  padding-right: 8px;
+  margin-right: 6px;
+  border-right: solid thin #CCC;
+}
