@@ -100,9 +100,8 @@ if (typeof localStorage.nonews_blacklist_urls === "undefined") {
   xmlreq.open("GET", fileURL, false);
   xmlreq.send();
 
-  // The file should be in xmlreq.responseText array
-  blacklist = JSON.parse(xmlreq.responseText);
-  localStorage.nonews_blacklist_urls = JSON.stringify(blacklist.urls);
+  // The file should be in xmlreq.responseText
+  localStorage.nonews_blacklist_urls = xmlreq.responseText;
 }
 
 // Add the event listener with filters
@@ -142,9 +141,8 @@ if (typeof localStorage.nonews_blacklist_urls === "undefined") {
   xmlreq.open("GET", fileURL, false);
   xmlreq.send();
 
-  // The file should be in xmlreq.responseText array
-  blacklist = JSON.parse(xmlreq.responseText);
-  localStorage.nonews_blacklist_urls = JSON.stringify(blacklist.urls);
+  // The file should be in xmlreq.responseText
+  localStorage.nonews_blacklist_urls = xmlreq.responseText;
 }
 {% endhighlight %}
 
@@ -168,7 +166,7 @@ If the black list is not already loaded, lines 3-6 use a <code>XMLHttpRequest</c
 
 The actual file is over 6300 lines long, containing most of the websites from [this list of Google News sources](http://www.labnol.org/tech/google-news-sources/19321/). I am sure you have observed that these are not URLs, rather they are [match patterns](http://developer.chrome.com/extensions/match_patterns.html) that define our blacklist of sites.
 
-In lines 9 and 10 of the <code>nonews.js</code> file we see that the blacklist is loaded as a string into <code>localStorage</code>, and is now available for our extension to use.  Moving on we see the 2nd half of the event page:
+In line 9 of the <code>nonews.js</code> file we see that the blacklist is loaded as a string into <code>localStorage</code>, and is now available for our extension to use.  Moving on we see the 2nd half of the event page:
 
 {% highlight javascript %}
 
