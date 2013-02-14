@@ -13,3 +13,9 @@ h2.about {
   margin-right: 6px;
   border-right: solid thin #CCC;
 }
+
+.video {
+  width: 640px;
+  margin: 10px auto;
+  text-align: center;
+}
