@@ -6,17 +6,17 @@ tags: ["html5", "javascript", "game development"]
 excerpt: "For the past few months I have been playing with the HTML5 canvas element off and on.  In recent years it has been the subject of much excitement in the web development community, and as matured rapidly in modern browsers.  Now there are a wide variety of games and activities that utilize this relatively new element. For whatever reasons, I just assumed manipulating the canvas would be a pain in the ass, so I avoided it, until now."
 ---
 
-For the past few months I have been playing with the HTML5 canvas element off and on.  In recent years it has been the subject of much excitement in the web development community, and as matured rapidly in modern browsers.  Now there are a wide variety of games and activities that utilize this relatively new element.
+For the past few months I have been playing with the [HTML5 canvas element](http://en.wikipedia.org/wiki/Canvas_element) off and on.  In recent years it has been the subject of much excitement in the web development community, and as matured rapidly in modern browsers.  Now there are a wide variety of games and activities that utilize this relatively new element.
 
 For whatever reasons, I just assumed manipulating the canvas would be a pain in the ass, so I avoided it.  I thought, "I am not a game developer, so I have no need for it."  I understood that not all canvas use was in the realm of game development, however, the other use cases weren't inspiring me to learn.
 
 So I ignored the canvas.
 
-Until a few months ago.  I was reading a thread on reddit and commenting to a new web developer about how learning to program is a process of writing code that does not work properly, finding the issues, fixing them, and then moving on.  In this same thread, someone had commented that when they get bored learning a particular programming lesson, they just fire up jsfiddle and play with the canvas - because, they said - "it is just so fun and simple".
+Until a few months ago.  I was reading a thread on reddit and commenting to a new web developer about how learning to program is a process of writing code that does not work properly, finding the issues, fixing them, and then moving on.  In this same thread, someone had commented that when they get bored learning a particular programming lesson, they just fire up [jsfiddle](http://jsfiddle.net/) and play with the canvas - because, they said - "it is just so fun and simple".
 
 Fun and simple? Canvas?
 
-"Canvas is simple and fun", they said. "Reddit is full of trolls", I said. Don't feed the trolls.  If it was simple, everyone would be doing it.  If it were simple, then even I could write a game in javascript. So like any good redditor, I fired up my browser and was going to prove to myself and everyone that this cannot be, in any way, simple.
+"Canvas is simple and fun", they said. "Reddit is full of trolls", I said. I don't like to feed the trolls.  If it was simple, everyone would be doing it.  If it were simple, then even I could write a game in javascript. So like any good redditor, I fired up my browser and was going to prove to the world that this cannot be, in any way, simple.
 
 A few minutes later I had a square drawn on my screen.  A few hours later I had multiple shapes in different colors.  And they were moving.  By the end of that first day, I had accomplished no real work, but I had shapes moving on my screen, under my control.
 
