@@ -16,6 +16,9 @@ body {
 .mybio {
 
 }
+.date {
+
+}
 ul.naked {
   list-style-type: none;
   margin: 0 !important;
@@ -43,6 +46,14 @@ section.main-content #post p {
 
 .centered-text {
   text-align: center;
+}
+
+.grok {
+  text-align: center;
+}
+
+.grok img {
+  
 }
 
 /* Legacy CSS for old blog posts */
