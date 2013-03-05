@@ -7,12 +7,11 @@ title: Blog of San Antonio Web Developer / Rubyist
 
    <!-- here add you post markup -->
    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-   <p class="author">
-    <span class="date">{{post.date | date_to_long_string }}</span>
-  </p>
+   <h6 class="date">{{post.date | date_to_long_string }}</h6>
   <div class="content">
     {{ post.excerpt }}
   </div>
+  <hr>
 {% endfor %}
 
 {% if paginator.total_pages > 1 %}
