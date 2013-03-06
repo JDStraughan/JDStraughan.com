@@ -6,6 +6,10 @@ tags: ["html5", "javascript", "game development"]
 excerpt: "Last month I made my first game: html5-lightcycles.  It is a Tron inspired lightcycle game, a humble recreation of the 1980s arcade classic.  The whole truth behind the lightcycle game includes the tidbit that when I first started playing around with the creating that game, snake was my original intention.  "
 ---
 
+> *Thank you [HackerNews](http://news.ycombinator.com/)* for the *front-page* love!
+
+<hr>
+
 Last month I made my first game: [html5-lightcycles](https://github.com/JDStraughan/html5-lightcycles).  It is a Tron inspired lightcycle game, a humble recreation of the 1980s arcade classic. I wrote a blog post about the experience, [you can check it out here](http://jdstraughan.com/2013/02/14/my-first-game-html5-lightcycles/).  The whole truth behind the lightcycle game includes the tidbit that when I first started playing around with the creating that game, snake was my original intention.  
 
 For those that don't know it, snake is one of the oldest video games, with origins in the 1970s.  Nokia put it on cell phones in 1998, and it became a staple of cell phone gaming.  The concept is simple: you control a snake that grows when it consumes food, and dies when it hits a wall or itself.  Some variants include obstacles, increased speed, and other mechanisms to increase difficulty.
@@ -16,9 +20,9 @@ Moving a box across the canvas was easy, and turning off the screen reset gave m
 
 If you are visiting this page in an HTML5 capable browser, and are not on a mobile device, then this game should work for you.
 
-<iframe style="width: 100%; height: 480px" src="http://jsfiddle.net/zT7V4/7/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe style="width: 100%; height: 480px" src="http://jsfiddle.net/zT7V4/13/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-You can also view/play the game (in 640x480 mode) directly on [jsfiddle](http://jsfiddle.net/zT7V4/5/embedded/result/). 
+You can also view/play the game (in 640x480 mode) directly on [jsfiddle](http://jsfiddle.net/zT7V4/9/embedded/result/). 
 
 ## The Source Code
 
@@ -283,9 +287,9 @@ snake = {
 
 {% endhighlight %}
 
-This object is significantly larger than the last one, and has a lot more coolness also. The first thing the class is does is initiate the <code>snake.size</code> property, and we notice it is dynamic: <code>size: canvas.width / 40</code>.
+This object is significantly larger than the last one, and has a lot more coolness, also. The first thing the class does is initiate the <code>snake.size</code> property, and we notice it is dynamic: <code>size: canvas.width / 40</code>.
 
-This game was designed to run on either a <code>320x240</code> or <code>640x480</code> canvas.  This means our <code>snake.size</code> is directly proportional to our canvas, and at our predetermined canvas sizes, we'd end up with the following sizes:
+This game was designed to run on either a <code>320x240</code> or <code>640x480</code> canvas.  This means our <code>snake.size</code> is directly proportional to our canvas, and at our predetermined canvas sizes, we'd end up with the following section sizes:
 
 > 320 / 40 = 8
 
@@ -295,7 +299,7 @@ Note that here size refers to each section of the snake, so on a <code>320x240</
 
 Unlike many game pieces, our snake does not just move, it crawls.  As its head moves forward, its body continues to follow the same path, and turning a corner can take several "moves".  To accomplish this, our snake is make up of an array of coordinates, and we will <code>shift()</code> and <code>push()</code> coordinates off and on to the array to update it's position.
 
-Creating a new snake has a few parts, so there is an <code>init()</code> method to take care of getting it constructed. This method starts by ensuring the <code>sections</code> array is cleared and the starting <code>direction</code> is reset. It then places the snake in the middle of the game board, and again aviods hard coded postions in favor of allowing for multiple canvas sizes.
+Creating a new snake has a few parts, so there is an <code>init()</code> method to take care of getting it constructed. This method starts by ensuring the <code>sections</code> array is cleared and the starting <code>direction</code> is reset. It then places the snake in the middle of the game board, and again avoids hard-coded positions in favor of allowing for multiple canvas sizes.
 
 {% highlight javascript %}
 
@@ -304,7 +308,7 @@ snake.y = canvas.height /2 + snake.size / 2;
 
 {% endhighlight %}
 
-We need to remember that when <code>game.drawBox()</code> creates each section, it begins from the x,y coordinates, then creates a box based on the height and width, with the x,y in the center.  This means that a box will have a center that is 1/2 the width and 1/2 the height.  To abide by these conditions, our snake is positioned accordingly.
+We need to remember that when <code>game.drawBox()</code> creates each section, it begins from the x,y coordinates, then creates a box based on the height and width with the x,y in the center.  This means that a box will have a center that is 1/2 the width and 1/2 the height.  To abide by these conditions, our snake is positioned accordingly.
 
 Lastly, our <code>init()</code> method builds our starting snake: 
 
@@ -318,7 +322,7 @@ for (i = snake.x + (5 * snake.size); i >= snake.x; i-=snake.size) {
 
 This creates 5 array elements, each containing an x,y coordinate that is offset by the <code>snake.size</code>.  Note that we are beginning the array with the tail, and ending it with the head. This will make <code>shift()</code> remove the tail, and we can use <code>push()</code> to advance the head position.  The <code>snake.x</code> and <code>snake.y</code> coordinates always refer to the head position.
 
-Next we have the <code>snake.move()</code> method. This checks the <code>snake.direction</code>, which is updated later in the script, and then manipulates the head of the snake accordingly.  Upward movement requires, the y coordinate to decrease, down increases, left decreases the x coordinate, and inversely, right increases it.  Notice the unit added or removed is <code>snake.size</code>, since the snake sections sizes are larger than 1 px we need to move the head by the size of the sections.
+Next we have the <code>snake.move()</code> method. This checks the <code>snake.direction</code>, which is updated later in the script, and then manipulates the head of the snake accordingly.  Upward movement requires, the y coordinate to decrease, down increases, left decreases the x coordinate, and inversely, right increases it.  Notice the unit added or removed is <code>snake.size</code>, since the snake sections sizes are larger than 1px we need to move the head by the size of the sections.
 
 After updating the head position, <code>snake.move()</code> then invokes <code>snake.checkCollision()</code>.  We'll cover this method in a minute, just know it determines if the head as collided with the outside of the game area, or with an existing section of the snake.  Either of these results in the game being stopped.
 
@@ -326,9 +330,9 @@ Next our <code>move()</code> method continues on to the <code>snake.checkGrowth(
 
 The last thing <code>move()</code> does is <code>push()</code> the new <code>snake.x</code> and <code>snake.y</code> coordinates onto the <code>snake.sections</code> array.
 
-Our next method, <code>snake.draw()</code>, iterates through the <code>snake.sections</code> array and then splits the values into arrays with the x and y coordinates, and pases them along to the next method in the class: <code>snake.drawSection()</code>.
+Our next method, <code>snake.draw()</code>, iterates through the <code>snake.sections</code> array and then splits the values into arrays with the x and y coordinates, and passes them along to the next method in the class: <code>snake.drawSection()</code>.
 
-Here we circle back to the game.drawBox() function, and pass teh x, y, size, and color of our snake.  In turn, each section is drawn, and our array can be physically represented as a series of boxes on our canvas.
+Here we circle back to the game.drawBox() function, and pass the x, y, size, and color of our snake.  In turn, each section is drawn, and our array can be represented as a series of boxes on our canvas.
 
 Moving on through the <code>snake</code> object, we see the <code>checkCollision()</code> and <code>isCollision()</code> functions.  The first, <code>checkCollision()</code>, is really just a helper that calls <code>isCollision()</code> on our snake's coordinates, and stops the game if there are any collisions found.
 
@@ -397,7 +401,7 @@ food = {
 
 {% endhighlight %}
 
-Like the snake object, <code>food</code> must have a <code>size</code>, <code>x</code>, <code>y</code>, and <code>color</code>. The real magic in this object in the <code>set</code> method.
+Like the snake object, <code>food</code> must have a <code>size</code>, <code>x</code>, <code>y</code>, and <code>color</code>. The real magic in this object is in the <code>set</code> method.
 
 When <code>food.set</code> is called, the first thing that happens is the size of the food is set to match the size of the snake.  Next, we set this x and y coordinates for randomized food placement.  Because our snake really moves around in a grid that is determined by the width of each section, not every pixel on the canvas is accessible by the center of the snake's head.  To place food in a position where can be consumed, some care must be given.
 
@@ -470,7 +474,7 @@ addEventListener("keydown", function (e) {
 
 {% endhighlight %}
 
-Now when a key is pressed, our event listener will fire, and these few lines of code with execute.  Here we utilize our <code>getKey()</code> method to see if the key pressed was a movement key, and if so we also assert that it is not the <code>inverseDirection</code> of our current <code>snake.direction</code>.  If these conditions are met, the <code>snake.direction</code> is updated and our snake will be off on a new bearing.  If the key was not a direction key, the listener checks to see if it was a spacebar or enter key, and if it is the <code>game.start()</code> method is called.  If the key is none of these, the keypress is ignored.
+Now when a key is pressed, our event listener will fire, and these few lines of code with execute.  Here we utilize our <code>getKey()</code> method to see if the key pressed was a movement key, and if so we also assert that it is not the <code>inverseDirection</code> of our current <code>snake.direction</code>.  If these conditions are met, the <code>snake.direction</code> is updated and our snake will be off on a new bearing.  If the key was not a direction key, the listener checks to see if it was a spacebar or enter key, and if it is the <code>game.start()</code> method is called.  If the key is none of these, the key-press is ignored.
 
 That is pretty simple, and our helpers made the listener much easier to read and follow along with.
 
@@ -480,11 +484,9 @@ Here were are, the final stage.  We've done all the heavy lifting of creating ou
 
 {% highlight javascript %}
 
-var requestAnimationFrame =  requestAnimationFrame ||
-      webkitRequestAnimationFrame ||
-      mozRequestAnimationFrame ||
-      msRequestAnimationFrame ||
-      oRequestAnimationFrame;
+var requestAnimationFrame =  window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame;
 
 function loop() {
   if (game.over == false) {
