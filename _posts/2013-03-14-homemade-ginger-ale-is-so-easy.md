@@ -3,7 +3,7 @@ layout: post
 published: true
 title: Homemade Ginger Ale that is so easy (even a 7 year old can do it)
 tags: ["soda making", "cooking"]
-excerpt: ""
+excerpt: "For the past couple of years, I've enjoyed finding craft sodas, and my son has developed quite the palette for fine root beers.  While ginger beer (or ginger ale as some call it) is not his favorite, his mom and I sure think it is nice. So we decided to make our own. In the end our first attempt at _Straughan's World Famous Ginger Beer_ was a success, and is now open-source."
 ---
 
 For the past couple of years, I've enjoyed finding craft sodas, and my son has developed quite the palette for fine root beers.  While ginger beer (or ginger ale as some call it) is not his favorite, his mom and I sure think it is nice.
