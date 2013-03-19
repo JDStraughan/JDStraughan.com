@@ -69,6 +69,5 @@ section.main-content #post p {
 }
 
 #post img {
-  display: block;
-  margin: 0 auto;
+  padding: 5px;
 }
