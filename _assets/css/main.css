@@ -56,6 +56,10 @@ section.main-content #post p {
   
 }
 
+.contact-me a:hover {
+  text-decoration: none;
+}
+
 /* Legacy CSS for old blog posts */
 
 
