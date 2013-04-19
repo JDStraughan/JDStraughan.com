@@ -14,7 +14,7 @@ I'm not yet forty years old, and a once coveted piece of advanced cellular techn
 
 Now, it is old-timey.  The world has moved on.
 
-The world was boring when I was a kid, all the cool things happened in my parents lifetime.  Or so I thought.  Now we live in a new era, and I have watched mankind peek through the crack as a door opens that will change everything.
+The world was boring when I was a kid, all the cool things happened in my parent's lifetime.  Or so I thought.  Now we live in a new era, and I have watched mankind peek through the crack as a door opens that will change everything.
 
 My son will grow up in this new world.  I don't mean one that lacks busy signals and where long-distance calls don't exist.  I'm talking about a world where everything is possible.
 
