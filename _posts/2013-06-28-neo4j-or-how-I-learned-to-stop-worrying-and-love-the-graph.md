@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: Meet neo4j - or how to stop worrying and love the graph
+title: Neo4j - or how I learned to stop worrying and love the graph
 tags: ["neo4j", "database", "graph"]
 excerpt: "At just that moment when I was convinced the social networking revolution was no more enlightening than reality television, I began to realize that there was one great and powerful idea that needed this exact environment to gestate: the graph database."
 ---
