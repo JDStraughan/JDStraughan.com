@@ -4,6 +4,10 @@ published: true
 title: Jekyll is just what the doctor ordered
 tags: ["jekyll"]
 excerpt: "New year, new blog, new blog engine.  For the last few years, my blog has successfully sat stagnant with 2 posts in it.  Despite my total lack of attention to this site, it still managed to garner a few dozen readers a day, mainly from stackoverflow and some Russian blog. For several months I have been eyeing jekyll, the blog engine from Tom Preston-Werner of GitHub fame."
+author:     "Jason Straughan"
+header-img: "img/header/rosetta.jpg"
+image-credit: <a href="http://commons.wikimedia.org/wiki/User:Chris_73">Chris_73</a> [<a href="http://creativecommons.org/licenses/by-sa/3.0">CC-BY-SA-3.0</a>], <a href="http://commons.wikimedia.org/wiki/File:DemoticScriptsRosettaStoneReplica.jpg">via Wikimedia Commons</a>
+
 ---
 
 ### Strange Case of mixed personalities
@@ -22,15 +26,15 @@ For those of you that don't know, [Tom Preston-Werner](http://tom.preston-werner
 
 At first glance you may think this is some hipsterware for blogging old school.  On the contrary, jekyll overcomes many problems by being simple, and static.
 
-A dynamic page is one that is backed by server-side code that is executed and renders a page for each request.  This has many advantages that stem from having page templates populated with data from databases that are managed by even more dynamic pages.  Server side languages like php, ruby, python, etc. are well suited for creating rich web applications, and many blogs fit into that category.  There are disadvantages also: servers, maintenance, upgrades, security - these things can cost time and money.  There is also scalability: if a page or blog becomes too popular, the cost of more databases and web servers becomes a burden, and caching solutions are required.  
+A dynamic page is one that is backed by server-side code that is executed and renders a page for each request.  This has many advantages that stem from having page templates populated with data from databases that are managed by even more dynamic pages.  Server side languages like php, ruby, python, etc. are well suited for creating rich web applications, and many blogs fit into that category.  There are disadvantages also: servers, maintenance, upgrades, security - these things can cost time and money.  There is also scalability: if a page or blog becomes too popular, the cost of more databases and web servers becomes a burden, and caching solutions are required.
 
-So if you are following along, to run a self-hosted blog you will need servers, databases, and eventually caching.  Caching can be as simple as publishing all your posts as static html files and serving them on a CDN or something like Amazon's S3, or as complex as caching servers that do all of this stuff for you, for a price.  
+So if you are following along, to run a self-hosted blog you will need servers, databases, and eventually caching.  Caching can be as simple as publishing all your posts as static html files and serving them on a CDN or something like Amazon's S3, or as complex as caching servers that do all of this stuff for you, for a price.
 
 ### Doctoring jekyll saves my hide
 
-Jekyll solves this entire problem by skipping the dynamic step and jumping straight to the static page part.  
+Jekyll solves this entire problem by skipping the dynamic step and jumping straight to the static page part.
 
-The part with static html pages, just like 1996.  
+The part with static html pages, just like 1996.
 
 Only better.  Way better.
 

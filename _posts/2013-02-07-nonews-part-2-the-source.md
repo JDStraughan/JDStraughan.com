@@ -4,11 +4,13 @@ published: true
 title: NoNews Part II - The Source
 tags: ["chrome extension", "javascript"]
 excerpt: "NoNews is a Google Chrome extension that was built to assist me (and you) avoid passively reading the news.  I wrote a blog post about why I wrote it, and explored the inspiration behind the endeavor.  In this post I'd like to walk-through the source code, explain how the extension is constructed, and talk about things that can be done to improve the extension."
+header-img: "img/header/badnews2.jpg"
+image-credit: Benjamin Vautier [Public domain], <a href="http://commons.wikimedia.org/wiki/File%3ABenjamin_Vautier_Die_Neuigkeiten.jpg">via Wikimedia Commons</a>
 ---
 
 [NoNews is a Google Chrome extension](https://chrome.google.com/webstore/detail/no-news-is-good-news/fnikidjfogfllkinoahanihoddalbhil) that I built to assist me (and you) in avoiding passively reading the news while casually surfing the web.  I wrote a [blog post about why I made it](http://jdstraughan.com/2013/01/29/nonews-is-good-news/), and explored the [inspiration](http://www.aaronsw.com/weblog/hatethenews) behind the endeavor.  In this post I'd like to walk-through the [source code](https://github.com/JDStraughan/nonews), explain how the extension is constructed, and talk about things that can be done to improve the product.
 
-This was my first attempt at creating a browser plugin, and I relied heavily on the [developer documentation](http://developer.chrome.com/extensions/) provided by Google.  At first glance it seemed lacking, and while the organization and example code was not always fulfilling, the docs do provide all the information needed to begin the journey into extension creation. Being my first extension, I am not sure I followed all the best practices or chose the best route for accomplishing my task, however, with a small amount of code I was able to create a fully functioning plugin with a few features with very little time invested. Experienced extension developers: I look forward to your constructive criticism in the comments! 
+This was my first attempt at creating a browser plugin, and I relied heavily on the [developer documentation](http://developer.chrome.com/extensions/) provided by Google.  At first glance it seemed lacking, and while the organization and example code was not always fulfilling, the docs do provide all the information needed to begin the journey into extension creation. Being my first extension, I am not sure I followed all the best practices or chose the best route for accomplishing my task, however, with a small amount of code I was able to create a fully functioning plugin with a few features with very little time invested. Experienced extension developers: I look forward to your constructive criticism in the comments!
 
 ## The Code
 
@@ -69,7 +71,7 @@ It is also worth mentioning that there is not a strict directory structure for e
 
 Most of this is self explanatory, but let's do a quick overview of the files.  The <code>README.md</code> file is there for GitHub, since this is an open-source project. Next up is the <code>assets</code> directory, which contains one file: <code>blacklist.json</code>.  This file is responsible for seeding the extension with a list of URLs that will be blocked by the browser.  The <code>css/popup.css</code>, <code>html/popup.html</code> and <code>js/popup.js</code> files generate the the popup display that occurs when a user places their mouse over the icon next to the address bar.  The icons listed in the <code>/img</code> directory fulfill the sizes required as shown [here](http://developer.chrome.com/extensions/manifest.html#icons).  The <code>js/nonews.js</code> file holds all the logic for our extension, and we are already familiar with the <code>manifest.json</code> file.
 
-Now that we have the directory structure and manifest file out of the way, let's dive into the most important file in the extension: the event page.  The docs tell us that through v1, extensions had the option to run a background script that continually monitored and reacted on browser events.  In v2, we have the ability to set persistence on event pages - a persistent event page is a background page, and setting persistent to false let's us have an event page that is only loaded as needed.  For more information, read the [documentation on event pages](http://developer.chrome.com/extensions/event_pages.html). 
+Now that we have the directory structure and manifest file out of the way, let's dive into the most important file in the extension: the event page.  The docs tell us that through v1, extensions had the option to run a background script that continually monitored and reacted on browser events.  In v2, we have the ability to set persistence on event pages - a persistent event page is a background page, and setting persistent to false let's us have an event page that is only loaded as needed.  For more information, read the [documentation on event pages](http://developer.chrome.com/extensions/event_pages.html).
 
 Looking back at the <code>manifest.json</code> file, we see that we have a non-persistant background page located at <code>js/nonews.js</code>.
 
@@ -95,7 +97,7 @@ So this script is a perfect place to setup our extension, and add any event list
 {% highlight javascript linenos %}
 if (typeof localStorage.nonews_blacklist_urls === "undefined") {
   // Get the file for the blacklist to load from json
-  var fileURL = chrome.extension.getURL("../assets/blacklist.json"); 
+  var fileURL = chrome.extension.getURL("../assets/blacklist.json");
   var xmlreq = new XMLHttpRequest();
   xmlreq.open("GET", fileURL, false);
   xmlreq.send();
@@ -117,7 +119,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       return;
     }
     // Redirect to blocked site page, passing url for bypass option
-    return { 
+    return {
       redirectUrl: 'http://www.nonews.info/blocked-site.html?site=' + tab.url
     }
   },
@@ -136,7 +138,7 @@ That, ladies and gentlemen, is the bulk of the code to make this extension work.
 {% highlight javascript linenos %}
 if (typeof localStorage.nonews_blacklist_urls === "undefined") {
   // Get the file for the blacklist to load from json
-  var fileURL = chrome.extension.getURL("../assets/blacklist.json"); 
+  var fileURL = chrome.extension.getURL("../assets/blacklist.json");
   var xmlreq = new XMLHttpRequest();
   xmlreq.open("GET", fileURL, false);
   xmlreq.send();
@@ -155,9 +157,9 @@ If the black list is not already loaded, lines 3-6 use a <code>XMLHttpRequest</c
 	"urls" : [
 		"*://*.10news.com/*",
 		"*://*.10tv.com/*",
-    
+
         ...
-		
+
 		"*://*.zoiksonline.com/*",
 		"*://*.zwire.com/*"
 	]
@@ -183,7 +185,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       return;
     }
     // Redirect to blocked site page, passing url for bypass option
-    return { 
+    return {
       redirectUrl: 'http://www.nonews.info/blocked-site.html?site=' + tab.url
     }
   },
@@ -199,7 +201,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 
 Here we are using the [chrome.webRequest](https://developer.chrome.com/extensions/webRequest.html) module to create our filters. According to the docs:
 
-> You must declare the "webRequest" permission in the extension manifest to use the web request API, along with host permissions for any hosts whose network requests you want to access. 
+> You must declare the "webRequest" permission in the extension manifest to use the web request API, along with host permissions for any hosts whose network requests you want to access.
 
 To accomplish this, we have this section in the <code>manifest.json</code> file:
 
@@ -225,7 +227,7 @@ In the case of <code>chrome.webRequest.onBeforeRequest</code>, the addListener m
 
 Working backwards, let's look at this "blocking" array first. The docs tell us:
 
-> If the optional opt_extraInfoSpec array contains the string 'blocking' (only allowed for specific events), the callback function is handled synchronously. That means that the request is blocked until the callback function returns. 
+> If the optional opt_extraInfoSpec array contains the string 'blocking' (only allowed for specific events), the callback function is handled synchronously. That means that the request is blocked until the callback function returns.
 
 Perfect! So if there is a match in the filters, the request will be blocked until the callback is completed.  Let's look at the filters next.
 
@@ -256,7 +258,7 @@ Finally, we are at the heart of the extension, the callback that will be fired w
       return;
     }
     // Redirect to blocked site page, passing url for bypass option
-    return { 
+    return {
       redirectUrl: 'http://www.nonews.info/blocked-site.html?site=' + tab.url
     }
   },
@@ -264,7 +266,7 @@ Finally, we are at the heart of the extension, the callback that will be fired w
   ...
 {% endhighlight %}
 
-We are passing the <code>tab</code> object to the function so we can made some decisions based on the contents of that object.  Although we have not looked at the features for bypassing and snoozing the extension, the code is not incredibly difficult.  
+We are passing the <code>tab</code> object to the function so we can made some decisions based on the contents of that object.  Although we have not looked at the features for bypassing and snoozing the extension, the code is not incredibly difficult.
 
 First, we are checking to see if the query string contains <code>nonews_bypass=true</code>, and if so, we are simply returning and allowing the browser to go on its merry way.
 
@@ -276,8 +278,9 @@ The public facing site for NoNews is available in the [website branch of the rep
 
 Currently, the blocked page looks like this:
 
-![Nonews Blocked Site Screen](/img/nonews-blocked-site-screen-800.jpg)
-<h5 class="centered-text">Screenshot of blocked URL with red bypass button and snooze bar popup open.</h5>
+![Nonews Blocked Site Screen](/img/post/nonews-blocked-site-screen-800.jpg)
+
+>Screenshot of blocked URL with red bypass button and snooze bar popup open.
 
 In this screen shot, you can see the red button on the blocked site page that touts the ability to allow you to continue on your way.  This is accomplished by some javascript in the website branch that creates a link using the original request URL with <code>nonews_bypass=true</code>added as part of the query string.  This creates a link that will successfully meet the requirement in the callback function to temporarily disable blocking for the request.
 
@@ -322,22 +325,22 @@ The icons are defined by their names as a convention for Chrome to know their si
 <script type="text/javascript" src="../js/popup.js"></script>
 {% endhighlight %}
 
-This is a pretty straightforward HTML file, with the only notable areas being the <code>snooze_container</code>, and the javascript file that is loaded at the end of the file. 
+This is a pretty straightforward HTML file, with the only notable areas being the <code>snooze_container</code>, and the javascript file that is loaded at the end of the file.
 
 #####js/popup.js
 {% highlight javascript %}
 var now = new Date().getTime();
 var snooze_end = localStorage.nonews_snooze_end;
 setSnoozeContents(now, snooze_end);
-var el = document.getElementById("nonews_snooze"); 
+var el = document.getElementById("nonews_snooze");
 
 if (el) {
-  el.addEventListener("click", function() { snooze(now, snooze_end) }); 
+  el.addEventListener("click", function() { snooze(now, snooze_end) });
 }
 
 // Set the snooze period to stop filter from blocking sites
 function snooze(now, snooze_end) {
-  
+
   // Do nothing if stored is still valid
   if (snooze_end > now) {
     return;
@@ -359,8 +362,8 @@ function snoozeTimeRemaining(now, snooze_end) {
     return secs_remain + ' seconds';
   } else {
     mins_remain = Math.ceil(secs_remain / 60);
-    unit_of_measure = (mins_remain == 1) ? ' minute' : ' minutes'; 
-    return mins_remain + unit_of_measure; 
+    unit_of_measure = (mins_remain == 1) ? ' minute' : ' minutes';
+    return mins_remain + unit_of_measure;
   }
 }
 
@@ -391,6 +394,6 @@ I don't have to be the creator of all these new features.  The [NoNews extension
 
 ##Conclusion
 
-With a little bit of javascript, some time to delve into the documentation, and some experimentation, creating a browser extension can be a fun and rewarding process.  This extension is a very simplistic one, yet it served as a good introduction to how these things are constructed.  
+With a little bit of javascript, some time to delve into the documentation, and some experimentation, creating a browser extension can be a fun and rewarding process.  This extension is a very simplistic one, yet it served as a good introduction to how these things are constructed.
 
 Paying attention to the permissions in the manifest file and exploring different aspects of the API was the key for me when poking around with the idea of making this extension.  I tried a few different ways to accomplish this task, and had fun breaking things and getting them all right again.  I hope this guide helps you in your browser extension adventures, and please leave any constructive criticism, improvements, or questions in the comments section below.

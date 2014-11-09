@@ -4,6 +4,8 @@ published: true
 title: Darth Vader Dreams of Electric Sheep
 tags: ["general"]
 excerpt: "Flip phones are \"old-timey\"? I'm not yet forty years old, and a once coveted piece of advanced cellular technology is now considered old-timey. My kid has never heard a busy signal, and I doubt he'd recognize a dial-tone. In my lifetime, the flip phone represented everything cool about electronics, and for many years elevated the social status of the owner.  Until it was  unseated by the smartphone, the flip-phone was king.  Now, it is old-timey.  The world has moved on."
+header-img: 'img/post/futuristic-panel.jpg'
+image-credit: Public Domain <a href="http://commons.wikimedia.org/wiki/File:Selfridge_Exterior2.jpg">via Wikimedia Commons</a>
 ---
 
 My 7 year old son received a fake flip-phone style hand-held game, a cheap knockoff that will not last a week, as part of his Easter weekend prize haul.  He promptly held it up to his ear, and proclaimed "Look, it's an old-timey phone".
@@ -24,7 +26,7 @@ We have a robot vacuum cleaner, my son calls it Barry.
 
 We know people that would no longer be living if we did not put machines in their body. Move over Darth Vader, everyone we know with a pacemaker is a part of my son's life because of the advances in technology, and the innovation of countless surgeons, scientists, and patients. His generation will expect a lot from the medical community, and they'll probably get it.
 
-Knowledge brings freedom to mankind.  The more knowledge we have, the more free we become. 
+Knowledge brings freedom to mankind.  The more knowledge we have, the more free we become.
 
 I remember my folks kept maps in the car. If we were lost in the city, we could pull over, get out the map, and plot out a route home. The information in the maps made it easier to navigate the confusing city streets. My kid asks Siri where the nearest pizza place is, and my car radio begins giving me friendly, turn-by-turn directions.
 
@@ -34,11 +36,11 @@ I can read news about a bombing of a disco in Jerusalem from multiple sources, a
 
 I can take a math course from MIT, and a programming course from Stanford, at the same time, for free, while eating cold spaghetti in my underwear.
 
-I can take a video of my kid meeting Mickey Mouse, and grandma can watch it minutes later.  
+I can take a video of my kid meeting Mickey Mouse, and grandma can watch it minutes later.
 
 Facebook knows my every move.
 
-In our pockets we carry all the knowledge of mankind, the ability to communicate with people worldwide. 
+In our pockets we carry all the knowledge of mankind, the ability to communicate with people worldwide.
 
 We have instant _everything_.
 
@@ -46,7 +48,7 @@ We have instant _everything_.
 
 We're colonizing planets with robots, putting computers in hearts, Legos are object oriented, and printers output in 3D.
 
-I've seen the future, and it _rocks_.  The engineers of tomorrow will shape it into the most amazing wonders our species have ever seen, and we may be lucky enough to see it.  
+I've seen the future, and it _rocks_.  The engineers of tomorrow will shape it into the most amazing wonders our species have ever seen, and we may be lucky enough to see it.
 
 Our kids will see more than we will.
 

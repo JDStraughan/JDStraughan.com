@@ -1,12 +1,15 @@
 ---
 layout: post
 published: true
+author: Jason Straughan
 title: "3 Day Startup San Antonio at Geekdom (Summer 2013)"
 tags: ["3DS", "3 Day Startup", "Geekdom"]
 excerpt: "This past weekend I was fortunate enough to participate in the 3 Day Startup | San Antonio event at Geekdom as a mentor. The program embraces the lean startup methodology to engage customers along the product development lifecycle to properly align the company's offerings with the customer's needs."
+header-img: "img/header/geekdom-ping-pong.jpg"
+image-credit: <a href="http://tech.co/author/kira-newman">Kira M. Newman</a> via <a href="http://tech.co/geekdom-san-antonio-2013-06/geekdom-ping-pong">Tech Cocktail</a>
 ---
 
-This past weekend I was fortunate enough to participate in the [3 Day Startup | San Antonio](http://3dssanantonio.com/) event at [Geekdom](http://geekdom.com/) as a mentor.  If you are not familiar with 3 Day Startup (3DS), the website offers this description:
+This past weekend I was fortunate enough to participate in the [3 Day Startup San Antonio](http://3dssanantonio.com/) event at [Geekdom](http://geekdom.com/) as a mentor.  If you are not familiar with 3 Day Startup (3DS), the website offers this description:
 
 > The idea of 3 Day Startup is simple: start a company over the course of three days. We rent work space for an entire weekend, recruit 40 students and young professionals with a wide range of backgrounds, cater food and drinks, invite top-notch entrepreneurs and investors, pick the best idea for a software startup during the Friday brainstorming session, and release a minimal prototype by Sunday night. The goal is to build enough momentum among a network of motivated people to sustain the company beyond the weekend.
 
@@ -22,7 +25,7 @@ Much like performing experiments in a chemistry lab to determined the plausibili
 
 ### Example Lean Canvas
 
-![Lean Canvas Example](/img/cornholio_lean_canvas_example.png)
+![Lean Canvas Example](/img/POST/cornholio_lean_canvas_example.png)
 
 This lean canvas for a fictitious startup, [cornhol.io](http://cornhol.io), was created using the [Lean Canvas Google Docs Template](https://drive.google.com/previewtemplate?id=16uOd158UzJM9oqGWgJOtbppzGNPmZ4fWMSV6_xBz3Z8&mode=public&pli=1#) by [Lucas Rodriguez Cervera](https://drive.google.com/templates?view=public&authorId=11994523493363598636).
 
@@ -44,16 +47,16 @@ An important lesson I learned from 3DS: the idea is the vehicle needed to learn 
 
 This was my first experience with 3DS and I was thankful to be paired with seasoned mentors; entrepreneurs that had one or more 3DS weekend under their belt.  I'm confident I learned just as much as the participants, maybe more. I was very impressed with the teams and their accomplishments in such a short amount of time, and hope to stay in contact with many participants for years to come.  The lessons, people, and inspiration will have long-term effects on my professional and personal life.
 
-A special thanks to the 3DS organizers: [Michael Girdley](http://girdley.com/), [Ryan Tanner](http://www.ryantanner.org/), and [Luz Cristal Glangchai](http://venturelab.net/about/our-team/) for making this happen, and giving me the opportunity to participate. 
+A special thanks to the 3DS organizers: [Michael Girdley](http://girdley.com/), [Ryan Tanner](http://www.ryantanner.org/), and [Luz Cristal Glangchai](http://venturelab.net/about/our-team/) for making this happen, and giving me the opportunity to participate.
 
 Below you'll find links to the final pitches, and an interview with some of the mentors (including myself).
 
 ###Final Pitches
 
-<iframe width="640" height="385" src="http://cdn.livestream.com/embed/3dssasummer?layout=4&clip=flv_8840c91a-53b8-4694-aee4-5792e03f2d05&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=true&height=385&width=640" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe><div style="font-size:11px;padding-top:10px;text-align:center;width:640px">Watch <a href=http://www.livestream.com/?utm_source=lsplayer&amp;utm_medium=embed&amp;utm_campaign=footerlinks title=live streaming video>live streaming video</a> from <a href=http://www.livestream.com/3dssasummer?utm_source=lsplayer&amp;utm_medium=embed&amp;utm_campaign=footerlinks title=Watch 3dssasummer at livestream.com>3dssasummer</a> at livestream.com</div>
+<iframe width="640" height="385" src="http://cdn.livestream.com/embed/3dssasummer?layout=4&clip=flv_8840c91a-53b8-4694-aee4-5792e03f2d05&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=true&height=385&width=640" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
 
 ###Interviews
 
-<iframe width="640" height="385" src="http://cdn.livestream.com/embed/3dssasummer?layout=4&clip=flv_fe20f99d-dbbb-4e4c-a30e-d7534c82d0f8&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=true&height=385&width=640" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe><div style="font-size:11px;padding-top:10px;text-align:center;width:640px">Watch <a href=http://www.livestream.com/?utm_source=lsplayer&amp;utm_medium=embed&amp;utm_campaign=footerlinks title=live streaming video>live streaming video</a> from <a href=http://www.livestream.com/3dssasummer?utm_source=lsplayer&amp;utm_medium=embed&amp;utm_campaign=footerlinks title=Watch 3dssasummer at livestream.com>3dssasummer</a> at livestream.com</div>
+<iframe width="640" height="385" src="http://cdn.livestream.com/embed/3dssasummer?layout=4&clip=flv_fe20f99d-dbbb-4e4c-a30e-d7534c82d0f8&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=true&height=385&width=640" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
 
-<iframe width="640" height="385" src="http://cdn.livestream.com/embed/3dssasummer?layout=4&clip=flv_52c129ee-39e1-4259-bfaa-b88def9e3d5a&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=true&height=385&width=640" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe><div style="font-size:11px;padding-top:10px;text-align:center;width:640px">Watch <a href=http://www.livestream.com/?utm_source=lsplayer&amp;utm_medium=embed&amp;utm_campaign=footerlinks title=live streaming video>live streaming video</a> from <a href=http://www.livestream.com/3dssasummer?utm_source=lsplayer&amp;utm_medium=embed&amp;utm_campaign=footerlinks title=Watch 3dssasummer at livestream.com>3dssasummer</a> at livestream.com</div>
+<iframe width="640" height="385" src="http://cdn.livestream.com/embed/3dssasummer?layout=4&clip=flv_52c129ee-39e1-4259-bfaa-b88def9e3d5a&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=true&height=385&width=640" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>

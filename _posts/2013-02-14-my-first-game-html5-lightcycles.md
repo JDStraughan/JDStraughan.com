@@ -4,6 +4,8 @@ published: true
 title: My first game - HTML5 lightcycles
 tags: ["html5", "javascript", "game development"]
 excerpt: "For the past few months I have been playing with the HTML5 canvas element off and on.  In recent years it has been the subject of much excitement in the web development community, and as matured rapidly in modern browsers.  Now there are a wide variety of games and activities that utilize this relatively new element. For whatever reasons, I just assumed manipulating the canvas would be a pain in the ass, so I avoided it, until now."
+header-img: "img/header/tron.jpg"
+image-credit: Pacifier (Own work) [<a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a>], <a href="http://commons.wikimedia.org/wiki/File%3ATron_bryce.jpg">via Wikimedia Commons</a>
 ---
 
 For the past few months I have been playing with the [HTML5 canvas element](http://en.wikipedia.org/wiki/Canvas_element) off and on.  In recent years it has been the subject of much excitement in the web development community, and as matured rapidly in modern browsers.  Now there are a wide variety of games and activities that utilize this relatively new element.
@@ -37,7 +39,7 @@ I was 7 (the same age my son is now) when Tron came to the movie theater, and it
 
 I had my inspiration.  I'd build a lightcycle game.
 
-For the uninitiated, like myself, the logic behind gaming is a mystery.  I have contemplated it often, but in all honesty have not read much on the subject.  
+For the uninitiated, like myself, the logic behind gaming is a mystery.  I have contemplated it often, but in all honesty have not read much on the subject.
 
 Based on my previous experiments, reading lots of blog posts (I wish I could list them all here) and a fair amount of generous stackoverflow answers, I could make my cycle appear, move, and I had figured out how to detect if I had left the game grid.
 

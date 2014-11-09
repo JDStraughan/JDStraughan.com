@@ -1,6 +1,6 @@
 ---
 layout: post
-published: true
+published: false
 title: Neo4j - or how I learned to stop worrying and love the graph
 tags: ["neo4j", "database", "graph"]
 excerpt: "At just that moment when I was convinced the social networking revolution was no more enlightening than reality television, I began to realize that there was one great and powerful idea that needed this exact environment to gestate: the graph database."
@@ -50,11 +50,11 @@ There are several graph databases available to choose from, but the one I've wor
 
 ####Learning neo4j
 
-The neo4j team and community have done a great job of supplying educational material and [sample datasets](http://www.neo4j.org/develop/example_data) for exploration. At the time of this blog post, they are even giving away a [free copy of O'Reilly's new book: Graph Databases](http://www.neo4j.org/learn).  The [video section](http://www.neo4j.org/learn/videos) of their site is very informative, with the [webinars](http://www.neo4j.org/learn/videos_webinar) particularly useful. 
+The neo4j team and community have done a great job of supplying educational material and [sample datasets](http://www.neo4j.org/develop/example_data) for exploration. At the time of this blog post, they are even giving away a [free copy of O'Reilly's new book: Graph Databases](http://www.neo4j.org/learn).  The [video section](http://www.neo4j.org/learn/videos) of their site is very informative, with the [webinars](http://www.neo4j.org/learn/videos_webinar) particularly useful.
 
 ####Querying with Cypher
 
-The cypher query language is unique to neo4j, and while it is very different than other database query languages, I have found it to be quite expressive and easy to use.  The basics are simple: each query has a start, a match, and a return.  Traversing a graph requires knowing where you want to begin (the start node), the rules that will allow traversal (the match segment) and what data you are expecting back (the return).  
+The cypher query language is unique to neo4j, and while it is very different than other database query languages, I have found it to be quite expressive and easy to use.  The basics are simple: each query has a start, a match, and a return.  Traversing a graph requires knowing where you want to begin (the start node), the rules that will allow traversal (the match segment) and what data you are expecting back (the return).
 
 A simple cypher query looks something like this:
 
@@ -74,11 +74,11 @@ These 3 queries each create a new node with properties.  The first 2 create peop
 
 Given the knowledge that Bob's node has an ID of 1, and Alice has an ID of 2, we can use these queries to create the relationships:
 
-    START alice = node(1), bob = node(2) 
+    START alice = node(1), bob = node(2)
     CREATE alice-[r:KNOWS { since:"2001/10/03"}]->bob
     RETURN r;
-    
-    START alice = node(1), bob = node(2) 
+
+    START alice = node(1), bob = node(2)
     CREATE bob-[r:KNOWS { since:"2001/10/04"}]->alice
     RETURN r;
 
@@ -86,36 +86,36 @@ Here we see 2 relationships defined: one from Alice to Bob, and another that rel
 
 Given that the group Chess has a node ID of 3, we can relate Bob and Alice to the Chess group as follows:
 
-    START alice = node(1), chess_group = node(3) 
+    START alice = node(1), chess_group = node(3)
     CREATE alice-[r:IS_MEMBER { since:"2005/7/1"}]->chess_group
     RETURN r;
-    
-    START alice = node(1), chess_group = node(3) 
-    CREATE chess_group-[r:MEMBERS]->alice 
+
+    START alice = node(1), chess_group = node(3)
+    CREATE chess_group-[r:MEMBERS]->alice
     RETURN r;
-    
-    START bob = node(2), chess_group = node(3) 
-    CREATE bob-[r:IS_MEMBER { since:"2011/2/14"}]->chess_group 
+
+    START bob = node(2), chess_group = node(3)
+    CREATE bob-[r:IS_MEMBER { since:"2011/2/14"}]->chess_group
     RETURN r;
-    
-    START bob = node(2), chess_group = node(3) 
-    CREATE chess_group-[r:MEMBERS]->bob 
+
+    START bob = node(2), chess_group = node(3)
+    CREATE chess_group-[r:MEMBERS]->bob
     RETURN r;
 
 Again, we created on directional relationship from Bob and Alice to the group, and another back from the group for each member.
 
 It is possible to create nodes and relationships in a single query.  For example, if we wanted to add a node for Joe, aged 19, and relate him as a friend of Alice starting on 2013/7/1, we could do this:
-    
-    START alice=node(1) 
+
+    START alice=node(1)
     CREATE p = (n {name:'Joe', age: 19})-[:KNOWS {since:"2013/7/1"}]->alice
     RETURN p;
 
 Now that we've loaded some data into our graph, let's see what it takes to get some results back from some queries.
-     
+
 Using our example graph from above, if we wanted to know who Bob knows, we could ask:
 
     START bob=node(2) MATCH bob-[r:KNOWS]->m RETURN m.name;
-    
+
 Neo4j will reply:
 
 
@@ -131,7 +131,7 @@ If we wanted to know the members of our Chess group, we could query:
     START chess_group=node(3) MATCH chess_group-[r:MEMBERS]->m RETURN m.name;
 
 Which returns:
-    
+
     +---------+
     | m.name  |
     +---------+

@@ -4,13 +4,14 @@ published: true
 title: HTML5 Snake source code walkthrough
 tags: ["html5", "javascript", "game development"]
 excerpt: "Last month I made my first game: html5-lightcycles.  It is a Tron inspired lightcycle game, a humble recreation of the 1980s arcade classic.  The whole truth behind the lightcycle game includes the tidbit that when I first started playing around with the creating that game, snake was my original intention.  "
+header-img: 'img/header/lightcycles.png'
 ---
 
 > *Thank you [HackerNews](http://news.ycombinator.com/)* for the *front-page* love!
 
 <hr>
 
-Last month I made my first game: [html5-lightcycles](https://github.com/JDStraughan/html5-lightcycles).  It is a Tron inspired lightcycle game, a humble recreation of the 1980s arcade classic. I wrote a blog post about the experience, [you can check it out here](http://jdstraughan.com/2013/02/14/my-first-game-html5-lightcycles/).  The whole truth behind the lightcycle game includes the tidbit that when I first started playing around with the creating that game, snake was my original intention.  
+Last month I made my first game: [html5-lightcycles](https://github.com/JDStraughan/html5-lightcycles).  It is a Tron inspired lightcycle game, a humble recreation of the 1980s arcade classic. I wrote a blog post about the experience, [you can check it out here](http://jdstraughan.com/2013/02/14/my-first-game-html5-lightcycles/).  The whole truth behind the lightcycle game includes the tidbit that when I first started playing around with the creating that game, snake was my original intention.
 
 For those that don't know it, snake is one of the oldest video games, with origins in the 1970s.  Nokia put it on cell phones in 1998, and it became a staple of cell phone gaming.  The concept is simple: you control a snake that grows when it consumes food, and dies when it hits a wall or itself.  Some variants include obstacles, increased speed, and other mechanisms to increase difficulty.
 
@@ -22,7 +23,7 @@ If you are visiting this page in an HTML5 capable browser, and are not on a mobi
 
 <iframe style="width: 100%; height: 480px" src="http://jsfiddle.net/zT7V4/13/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-You can also view/play the game (in 640x480 mode) directly on [jsfiddle](http://jsfiddle.net/zT7V4/9/embedded/result/). 
+You can also view/play the game (in 640x480 mode) directly on [jsfiddle](http://jsfiddle.net/zT7V4/9/embedded/result/).
 
 ## The Source Code
 
@@ -57,7 +58,7 @@ First, we need a basic page setup with a canvas tag.
 
 <p>Collect the food to grow and increase speed.</p>
 
-<p>&copy; 2013 - <a href="http://JDStraughan.com">JDStraughan.com</a> - <a href="https://github.com/JDStraughan/html5-snake">Source on GitHub</a></p>  
+<p>&copy; 2013 - <a href="http://JDStraughan.com">JDStraughan.com</a> - <a href="https://github.com/JDStraughan/html5-snake">Source on GitHub</a></p>
 <script type="text/javascript" src="game.js"></script>
 </body>
 </html>
@@ -69,8 +70,8 @@ Nothing special here, just a standard page, canvas element, and some basic instr
 {% highlight css %}
 
 article, aside, details, figcaption, figure, footer, header,
-hgroup, menu, nav, section { 
-  display: block; 
+hgroup, menu, nav, section {
+  display: block;
 }
 body {
   background-color: #CCC;
@@ -122,12 +123,12 @@ The <code>game</code> object contains controls for score, game state, and some d
 {% highlight javascript %}
 
 game = {
-  
+
   score: 0,
   fps: 8,
   over: false,
   message: null,
-  
+
   start: function() {
     game.over = false;
     game.message = null;
@@ -136,12 +137,12 @@ game = {
     snake.init();
     food.set();
   },
-  
+
   stop: function() {
     game.over = true;
     game.message = 'GAME OVER - PRESS SPACEBAR';
   },
-  
+
   drawBox: function(x, y, size, color) {
     context.fillStyle = color;
     context.beginPath();
@@ -152,14 +153,14 @@ game = {
     context.closePath();
     context.fill();
   },
-  
+
   drawScore: function() {
     context.fillStyle = '#999';
     context.font = (canvas.height) + 'px Impact, sans-serif';
     context.textAlign = 'center';
     context.fillText(game.score, canvas.width/2, canvas.height  * .9);
   },
-  
+
   drawMessage: function() {
     if (game.message !== null) {
       context.fillStyle = '#00F';
@@ -170,11 +171,11 @@ game = {
       context.strokeText(game.message, canvas.width/2, canvas.height/2);
     }
   },
-  
+
   resetCanvas: function() {
     context.clearRect(0, 0, canvas.width, canvas.height);
   }
-  
+
 };
 
 {% endhighlight %}
@@ -207,24 +208,24 @@ While it's no Mario, our snake is our hero.
 {% highlight javascript %}
 
 snake = {
-  
+
   size: canvas.width / 40,
   x: null,
   y: null,
   color: '#0F0',
   direction: 'left',
   sections: [],
-  
+
   init: function() {
     snake.sections = [];
     snake.direction = 'left';
     snake.x = canvas.width / 2 + snake.size / 2;
     snake.y = canvas.height /2 + snake.size / 2;
     for (i = snake.x + (5 * snake.size); i >= snake.x; i-=snake.size) {
-      snake.sections.push(i + ',' + snake.y); 
+      snake.sections.push(i + ',' + snake.y);
     }
   },
-  
+
   move: function() {
     switch(snake.direction) {
       case 'up':
@@ -244,23 +245,23 @@ snake = {
     snake.checkGrowth();
     snake.sections.push(snake.x + ',' + snake.y);
   },
-  
+
   draw: function() {
     for (i = 0; i < snake.sections.length; i++) {
       snake.drawSection(snake.sections[i].split(','));
-    }    
+    }
   },
-  
+
   drawSection: function(section) {
     game.drawBox(parseInt(section[0]), parseInt(section[1]), snake.size, snake.color);
   },
-  
+
   checkCollision: function() {
     if (snake.isCollision(snake.x, snake.y) === true) {
       game.stop();
     }
   },
-  
+
   isCollision: function(x, y) {
     if (x < snake.size/2 ||
         x > canvas.width ||
@@ -270,7 +271,7 @@ snake = {
       return true;
     }
   },
-  
+
   checkGrowth: function() {
     if (snake.x == food.x && snake.y == food.y) {
       game.score++;
@@ -282,7 +283,7 @@ snake = {
       snake.sections.shift();
     }
   }
-  
+
 };
 
 {% endhighlight %}
@@ -310,12 +311,12 @@ snake.y = canvas.height /2 + snake.size / 2;
 
 We need to remember that when <code>game.drawBox()</code> creates each section, it begins from the x,y coordinates, then creates a box based on the height and width with the x,y in the center.  This means that a box will have a center that is 1/2 the width and 1/2 the height.  To abide by these conditions, our snake is positioned accordingly.
 
-Lastly, our <code>init()</code> method builds our starting snake: 
+Lastly, our <code>init()</code> method builds our starting snake:
 
 {% highlight javascript %}
 
 for (i = snake.x + (5 * snake.size); i >= snake.x; i-=snake.size) {
-  snake.sections.push(i + ',' + snake.y); 
+  snake.sections.push(i + ',' + snake.y);
 }
 
 {% endhighlight %}
@@ -381,22 +382,22 @@ Our food object is short and sweet.
 {% highlight javascript %}
 
 food = {
-  
+
   size: null,
   x: null,
   y: null,
   color: '#0FF',
-  
+
   set: function() {
     food.size = snake.size;
     food.x = (Math.ceil(Math.random() * 10) * snake.size * 4) - snake.size / 2;
     food.y = (Math.ceil(Math.random() * 10) * snake.size * 3) - snake.size / 2;
   },
-  
+
   draw: function() {
     game.drawBox(food.x, food.y, food.size, food.color);
   }
-  
+
 };
 
 {% endhighlight %}
@@ -448,7 +449,7 @@ Object.prototype.getKey = function(value){
 
 {% endhighlight %}
 
-We cannot allow our snake to move the opposite direction it is currently moving, and having a quick place to lookup the inverse of a direction is helpful, so we have a <code>inverseDirection</code> object where this can be accomplished easily. 
+We cannot allow our snake to move the opposite direction it is currently moving, and having a quick place to lookup the inverse of a direction is helpful, so we have a <code>inverseDirection</code> object where this can be accomplished easily.
 
 We want our users to be able to use multiple sets of keys to control our snake, so we have a <code>keys</code> object literal that defines our four directions with arrays of [char codes](http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes) for the respective keys.  We'll be accepting WASD, arrow keys, and the vim movement keys HJKL.
 
